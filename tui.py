@@ -31,7 +31,9 @@ class UserInterface:
         print("\nVisualization Menu:")
         print("A. Pie Chart of Reviews by Park")
         print("B. Bar Chart of Reviews by Location")
-        return input("Please select an option (A-B): ").strip().upper()
+        print("C. Line Chart of Review Trends Over Time")
+        print("D. Heatmap of Review Distributions")
+        return input("Please select an option (A-D): ").strip().upper()
 
     @staticmethod
     def display_export_options():

@@ -83,6 +83,12 @@ class DisneylandReviewAnalyser:
             park_name = input("Enter the park name: ")
             data = self.processor.aggregate_reviews_by_location(park_name)
             self.visualizer.plot_bar_chart(data, "Park Reviews by Location", "Locations", "Reviews")
+        elif sub_choice == 'C':
+            data = self.processor.aggregate_review_trends()
+            self.visualizer.plot_line_chart(data, "Review Trends Over Time", "Time", "Number of Reviews")
+        elif sub_choice == 'D':
+            data = self.processor.aggregate_review_heatmap()
+            self.visualizer.plot_heatmap(data, "Review Distributions Heatmap", "Months", "Parks")
         else:
             self.ui.invalid_choice()
 
