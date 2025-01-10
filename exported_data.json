@@ -1,0 +1,23 @@
+{
+    "Disneyland_HongKong": {
+        "total_reviews": 9617,
+        "positive_reviews": 7744,
+        "total_rating": 40431,
+        "countries": 115,
+        "average_rating": 4.204117708225018
+    },
+    "Disneyland_California": {
+        "total_reviews": 19406,
+        "positive_reviews": 16499,
+        "total_rating": 85490,
+        "countries": 111,
+        "average_rating": 4.405338555086056
+    },
+    "Disneyland_Paris": {
+        "total_reviews": 13629,
+        "positive_reviews": 9674,
+        "total_rating": 53971,
+        "countries": 132,
+        "average_rating": 3.9600117396727565
+    }
+}
