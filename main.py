@@ -3,6 +3,7 @@ from tui import UserInterface
 from visual import Visualizer
 from exporter import DataExporter
 from logger import Logger
+from authentication import Authentication
 
 class DisneylandReviewAnalyser:
     def __init__(self, file_path):
@@ -12,11 +13,21 @@ class DisneylandReviewAnalyser:
         self.visualizer = Visualizer()
         self.exporter = DataExporter()
         self.logger = Logger("application.log")
+        self.auth = Authentication()
         self.is_running = True
 
     def start(self):
         self.ui.display_title("Disneyland Review Analyser")
         self.logger.log("Program started.")
+
+        # Authenticate user
+        authenticated = False
+        while not authenticated:
+            username = input("Enter username: ")
+            password = input("Enter password: ")
+            authenticated = self.auth.authenticate_user(username, password)
+            if not authenticated:
+                self.ui.display_message("Invalid credentials. Please try again.")
 
         # Load dataset
         rows = self.processor.load_data()
