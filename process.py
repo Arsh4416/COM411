@@ -66,3 +66,26 @@ class DataProcessor:
             park_data[park]['average_rating'] = park_data[park]['total_rating'] / park_data[park]['total_reviews']
             park_data[park]['countries'] = len(park_data[park]['countries'])
         return park_data
+    
+    def aggregate_review_trends(self):
+        """Aggregates data to show trends over time."""
+        trends = {}
+        for row in self.data:
+            time = row['Year_Month']  # Assuming the format is 'YYYY-MM'
+            if time not in trends:
+                trends[time] = 0
+            trends[time] += 1
+        return trends
+
+    def aggregate_review_heatmap(self):
+        """Aggregates data for creating a heatmap of reviews."""
+        heatmap_data = {}
+        for row in self.data:
+            park = row['Branch']
+            month = row['Year_Month'].split('-')[1]  # Extracting the month
+            if park not in heatmap_data:
+                heatmap_data[park] = {}
+            if month not in heatmap_data[park]:
+                heatmap_data[park][month] = 0
+            heatmap_data[park][month] += 1
+        return heatmap_data
